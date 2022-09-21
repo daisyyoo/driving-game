@@ -17,9 +17,9 @@ body {
 }
 
 .car {
-  width: 200px;
-  margin: 1rem;
+  width: 100px;
   transition: all 0.5s;
+  position: absolute;
 }
 
 .car-turn-right {
