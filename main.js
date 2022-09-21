@@ -24,7 +24,7 @@ function moveCarRight(event) {
     // var y = $car.offsetTop;
     for (var x = $car.offsetLeft; x < 900; x++) {
       if (x > 0) {
-        $car.style.left = [x] + 'px';
+        $car.style.left = x + 'px';
         // $car.style.top = y;
       }
     }
