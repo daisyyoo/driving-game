@@ -13,25 +13,28 @@ function turnCar(event) {
     $car.className = 'car car-turn-up';
   }
 }
-
-// var stopCarID = null;
-// var stopCarID =
+// var y = $car.offsetTop;
+// $car.style.top = y;
 
 $page.addEventListener('keydown', moveCarRight);
 
+var stopCarID = null;
+var carMoving = false;
+
 function moveCarRight(event) {
-  if (event.keyCode === 32) {
-    // var y = $car.offsetTop;
-    for (var x = $car.offsetLeft; x < 900; x++) {
-      if (x > 0) {
-        $car.style.left = x + 'px';
-        // $car.style.top = y;
-      }
+  if (event.key === ' ') {
+    if (carMoving === false) {
+      stopCarID = setInterval(startCar, 16);
+      carMoving = true;
+    } else {
+      clearInterval(stopCarID);
+      carMoving = false;
     }
   }
 }
 
 function startCar(event) {
-  moveCarRight(event);
+  var x = $car.offsetLeft;
+  x++;
+  $car.style.left = x + 'px';
 }
-setInterval(startCar, 16);
