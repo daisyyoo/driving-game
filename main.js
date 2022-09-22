@@ -22,21 +22,19 @@ var stopCarID = null;
 var carMoving = false;
 
 function moveCarRight(event) {
-  if (event.keyCode === 32) {
+  if (event.key === ' ') {
     if (carMoving === false) {
-      for (var x = $car.offsetLeft; x < 1500; x++) {
-        $car.style.left = x + 'px';
-        carMoving = true;
-        stopCarID = setInterval(startCar, 1000);
-      }
-    } else if (carMoving === true) {
+      stopCarID = setInterval(startCar, 16);
+      carMoving = true;
+    } else {
       clearInterval(stopCarID);
-      $car.offsetLeft = x + 'px';
       carMoving = false;
     }
   }
 }
 
 function startCar(event) {
-  moveCarRight(event);
+  var x = $car.offsetLeft;
+  x++;
+  $car.style.left = x + 'px';
 }
